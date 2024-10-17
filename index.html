@@ -17,6 +17,15 @@
             </div>
         </div>
 
+        <!-- Video Section -->
+        <div class="video-section">
+            <h3>فيديو استعراضي</h3>
+            <video controls>
+                <source src="sample-video.mp4" type="video/mp4">
+                المتصفح لا يدعم عرض الفيديو.
+            </video>
+        </div>
+
         <!-- Description Section -->
         <div class="description">
             <p>هتدخل علي جروب الشراء تكلم حد من الادمنز عشان و تديله بياناتك</p>
@@ -24,18 +33,6 @@
 
         <!-- WhatsApp Chat Group Buttons -->
         <div class="buttons-wrapper">
-            <!-- <div class="buttons-row">
-                <button class="whatsapp-button" onclick="window.location.href='https://chat.whatsapp.com/YOUR_CHAT_GROUP_1';">
-                    <i class="fas fa-comments"></i> Chat (Daily)
-                </button>
-                <button class="whatsapp-button" onclick="window.location.href='https://chat.whatsapp.com/YOUR_CHAT_GROUP_2';">
-                    <i class="fas fa-comments"></i> Chat (Weekly)
-                </button>
-                <button class="whatsapp-button" onclick="window.location.href='https://chat.whatsapp.com/YOUR_CHAT_GROUP_3';">
-                    <i class="fas fa-comments"></i> Chat (Monthly)
-                </button>
-            </div> -->
-
             <!-- WhatsApp Purchase Group Buttons -->
             <div class="buttons-row">
                 <button class="whatsapp-button" onclick="window.location.href='https://t.me/+B7J-BM7V7eVjNzA8';">
@@ -44,7 +41,7 @@
                 <button class="whatsapp-button" onclick="window.location.href='https://t.me/+KIzvguNwacE0YmI0';">
                     <i class="fas fa-shopping-cart"></i> (Weekly) Purchase 50.LE
                 </button>
-                <button class="whatsapp-button" onclick="window.location.href='https://t.me/+t0Wlj7bxV98zOTZk;'">
+                <button class="whatsapp-button" onclick="window.location.href='https://t.me/+t0Wlj7bxV98zOTZk';">
                     <i class="fas fa-shopping-cart"></i> (Monthly) Purchase 150.LE
                 </button>
             </div>
@@ -59,14 +56,24 @@
             box-sizing: border-box;
         }
 
+        /* Body to occupy full width and height */
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #121212; /* Dark background for dark mode */
+        }
+
         /* Setting up the main container */
         .container {
             width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
             padding: 20px;
             text-align: center;
             font-family: 'Arial', sans-serif;
+            background-color: #121212; /* Dark background for dark mode */
+            color: white; /* White text for dark mode */
+            box-sizing: border-box; /* Ensure padding doesn't affect width */
         }
 
         /* Styling the cover photo as a background */
@@ -77,8 +84,8 @@
             width: 100%;
             height: 300px;
             position: relative;
-            border-radius: 10px;
-            margin-bottom: 20px;
+            border-radius: 0; /* Remove border-radius for full-width */
+            margin: 0 auto 20px auto; /* Center the cover photo */
         }
 
         /* Adding an overlay to darken the background */
@@ -88,7 +95,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(0, 0, 0, 0.6); /* Darker overlay */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -104,8 +111,25 @@
         .description {
             margin-top: 10px;
             font-size: 18px;
-            color: #333;
+            color: #ccc; /* Lighter text for dark mode */
             margin-bottom: 30px;
+        }
+
+        /* Styling the video section */
+        .video-section {
+            margin-bottom: 30px;
+        }
+
+        .video-section h3 {
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        /* Video styling to make it responsive and not too large */
+        .video-section video {
+            width: 100%;
+            max-width: 600px; /* Maximum width of the video */
+            border-radius: 10px;
         }
 
         /* Buttons wrapper to center the buttons */
@@ -164,6 +188,10 @@
 
             .whatsapp-button {
                 width: 100%;
+            }
+
+            .video-section video {
+                max-width: 100%; /* Ensure video is responsive on smaller screens */
             }
         }
     </style>
