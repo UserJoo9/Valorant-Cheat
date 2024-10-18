@@ -13,20 +13,31 @@
         <!-- Cover Photo Section with Background Image -->
         <div class="cover-photo">
             <div class="overlay">
-                <h2>Valorant Magic Shooter Gate</h2>
+                <h2 class="rgb-title">Valorant Magic Shooter Gate</h2>
             </div>
         </div>
 
         <div class="description">
-            <p>
-                <div class="funky-card">
-                    <p>( اضمن أمان حسابك )</p>
-                </div>                
+            <div class="funky-card">
+                <p>اضمن أمان حسابك</p>
+            </div>   
+            <p class="greetings">             
                 اهلا اخواتي العرب<br>
                 مع اقوي برنامج شوتر في الوطن العربي مع دعم مميزات مش موجودة في اي برنامج تاني<br>
                 بنقدملك اسعار رمزية مش هتلاقيها في اي مكان تاني<br>
-                <span style="color: rgb(255, 153, 0);">البرنامج بيشتغل بطريقة امان لانه مش هاك</span>
+                <span style="color: rgb(0, 153, 255);">البرنامج بيشتغل بطريقة امان لانه مش هاك</span>
             </p>
+            <br>
+            <p class="features-title">مميزات الخدمة</p>
+            <ul class="features-list">
+                <li><i class="fas fa-bullseye"></i> اطلاق تلقائي علي العدو</li>
+                <li><i class="fas fa-tachometer-alt"></i> التحكم في سرعة الاطلاق</li>
+                <li><i class="fas fa-bolt"></i> التحكم في عدد الطلقات</li>
+                <li><i class="fas fa-desktop"></i> واجهة مستخدم بسيطة</li>
+                <li><i class="fas fa-lock"></i> ضمان امان حسابك</li>
+                <li><i class="fas fa-headset"></i> دعم 24 ساعة</li>
+            </ul>
+
         </div>
 
         <!-- Video Section -->
@@ -67,6 +78,28 @@
             padding: 0;
             box-sizing: border-box;
         }
+
+        .rgb-title {
+            font-family: '29ltbukrabolditalic', Arial, sans-serif;
+            font-size: 40px;
+            font-weight: bold;
+            color: white; /* اللون الأساسي للنص */
+            text-shadow: 0 0 10px red, 0 0 20px orange, 0 0 30px yellow, 0 0 40px green, 0 0 50px blue, 0 0 60px indigo, 0 0 70px violet;
+            animation: rgb-text-animation 3s infinite alternate;
+        }
+
+        @keyframes rgb-animation {
+            0% {
+                text-shadow: 0 0 10px red, 0 0 20px orange, 0 0 30px yellow, 0 0 40px green, 0 0 50px blue, 0 0 60px indigo, 0 0 70px violet;
+            }
+            50% {
+                text-shadow: 0 0 10px violet, 0 0 20px indigo, 0 0 30px blue, 0 0 40px green, 0 0 50px yellow, 0 0 60px orange, 0 0 70px red;
+            }
+            100% {
+                text-shadow: 0 0 10px blue, 0 0 20px green, 0 0 30px yellow, 0 0 40px orange, 0 0 50px red, 0 0 60px violet, 0 0 70px indigo;
+            }
+        }
+
 
         @font-face {
             font-family: '29ltbukrabolditalic';
@@ -117,6 +150,9 @@
             }
         }
 
+        .greetings {
+            font-size: 28px;
+        }
 
         .description {
             font-family: '29ltbukrabolditalic', Arial, sans-serif;
@@ -127,6 +163,46 @@
             font-family: '29ltbukrabolditalic', Arial, sans-serif;
             font-size: 24px; /* زيادة حجم الخط */
         }
+
+        .features-title {
+            font-family: '29ltbukrabolditalic', Arial, sans-serif; /* الخط المخصص */
+            font-size: 28px; /* حجم النص */
+            color: #ffae00; /* لون مميز للنص */
+            text-align: center; /* توسيط العنوان */
+            margin-bottom: 20px;
+        }
+
+        .features-list {
+            list-style: none; /* إزالة نقاط القائمة الافتراضية */
+            padding: 0;
+            margin: 0 auto; /* توسيط القائمة */
+            max-width: 600px; /* عرض القائمة */
+        }
+
+        .features-list li {
+            background-color: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
+            color: #fff; /* لون النص */
+            font-size: 20px; /* حجم النص */
+            padding: 15px 20px; /* المسافة الداخلية */
+            margin-bottom: 10px; /* المسافة بين العناصر */
+            border-radius: 10px; /* زوايا دائرية */
+            display: flex;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* ظل ناعم */
+            transition: background-color 0.3s, transform 0.2s; /* تأثير حركة ناعم */
+        }
+
+        .features-list li i {
+            margin-right: 15px; /* المسافة بين الأيقونة والنص */
+            font-size: 24px; /* حجم الأيقونة */
+            color: #ffae00; /* لون الأيقونة */
+        }
+
+        .features-list li:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* تغيير لون الخلفية عند التحريك */
+            transform: translateY(-5px); /* حركة بسيطة لأعلى عند التحريك */
+        }
+
 
         .whatsapp-button {
             font-family: '29ltbukrabolditalic', Arial, sans-serif;
