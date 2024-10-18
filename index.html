@@ -13,12 +13,19 @@
         <!-- Cover Photo Section with Background Image -->
         <div class="cover-photo">
             <div class="overlay">
-                <h2>Valorant Magic Shooter Community</h2>
+                <h2>Valorant Magic Shooter Gate</h2>
             </div>
         </div>
 
         <div class="description">
-            <p>اقوي برنامج شوتر في الوطن العربي مع دعم مميزات مش موجودة في اي برنامج تاني<br>و بنقدملك اسعار رمزية مش هتلاقيها في اي مكان تاني</p>
+            <p>
+                <div class="funky-card">
+                    <p>( اضمن أمان حسابك )</p>
+                </div>                
+                مع اقوي برنامج شوتر في الوطن العربي مع دعم مميزات مش موجودة في اي برنامج تاني<br>
+                بنقدملك اسعار رمزية مش هتلاقيها في اي مكان تاني<br>
+                <span style="color: rgb(255, 153, 0);">البرنامج بيشتغل بطريقة امان لانه مش هاك</span>
+            </p>
         </div>
 
         <!-- Video Section -->
@@ -77,6 +84,38 @@
             font-family: '29ltbukrabolditalic', Arial, sans-serif;
             font-size: 40px; /* زيادة حجم الخط */
         }
+
+                /* تنسيق البطاقة المميزة */
+        .funky-card {
+            background: linear-gradient(135deg, #ec0109 0%, #ffae00 100%); /* خلفية بتدرج لوني */
+            border-radius: 20px; /* زوايا دائرية */
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.1); /* ظل متدرج */
+            padding: 20px;
+            text-align: center;
+            max-width: 400px; /* عرض البطاقة */
+            margin: 30px auto; /* توسيط البطاقة في الصفحة */
+            animation: funky-card-bounce 3s infinite; /* إضافة حركة مستمرة */
+        }
+
+        /* تنسيق النص داخل البطاقة */
+        .funky-card p {
+            font-family: '29ltbukrabolditalic', Arial, sans-serif; /* استخدام الخط المخصص */
+            font-size: 32px; /* تكبير النص */
+            font-weight: bold;
+            color: white; /* لون النص أبيض */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* ظل للنص */
+        }
+
+        /* تأثير الحركة للبطاقة */
+        @keyframes funky-card-bounce {
+            0%, 100% {
+                transform: translateY(0); /* الوضع الطبيعي */
+            }
+            50% {
+                transform: translateY(-5px); /* الحركة للأعلى */
+            }
+        }
+
 
         .description {
             font-family: '29ltbukrabolditalic', Arial, sans-serif;
