@@ -20,7 +20,7 @@
         <div class="description">
             <div class="funky-card">
                 <p>اضمن أمان حسابك</p>
-            </div>   
+            </div> 
             <p class="greetings">             
                 اهلا اخواتي العرب<br>
                 مع اقوي برنامج شوتر في الوطن العربي مع دعم مميزات مش موجودة في اي برنامج تاني<br>
@@ -150,8 +150,26 @@
             }
         }
 
+        /* تنسيق للقسم المعزول */
         .greetings {
-            font-size: 28px;
+            background-color: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
+            padding: 30px;
+            margin: 50px auto; /* توسيط القسم في الصفحة */
+            max-width: 3200px;
+            border-radius: 15px; /* زوايا دائرية */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* ظل ناعم */
+            text-align: center; /* توسيط النص */
+        }
+
+        .greetings p {
+            font-size: 28px; /* حجم الخط */
+            line-height: 1.6; /* ارتفاع السطر */
+            margin-bottom: 20px; /* مسافة بين الفقرات */
+        }
+
+        .greetings span {
+            color: #00ccff; /* لون مميز للنص */
+            font-weight: bold; /* زيادة سمك النص */
         }
 
         .description {
