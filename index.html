@@ -257,18 +257,22 @@
         }
 
         /* Responsive design */
-        @media (max-width: 768px) {
+        @media (min-width: 769px) {
             .buttons-row {
-                flex-direction: column;
-                gap: 10px;
+                flex-direction: row; /* ترتيب الأزرار أفقياً في الشاشات الأكبر */
+                gap: 20px;
             }
 
             .whatsapp-button {
-                width: 100%;
+                width: 200px; /* تحديد حجم الأزرار للشاشات الكبيرة */
+            }
+
+            .funky-card {
+                max-width: 400px; /* توسيع البطاقة في الشاشات الكبيرة */
             }
 
             .video-section video {
-                max-width: 100%; /* Ensure video is responsive on smaller screens */
+                max-width: 600px; /* توسيع الفيديو في الشاشات الكبيرة */
             }
         }
     </style>
