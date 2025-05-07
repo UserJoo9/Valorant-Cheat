@@ -1,402 +1,421 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>V.M.S.G</title>
-    <!-- Link to Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff4655;
+            --secondary-color: #0f1923;
+            --accent-color: #ffae00;
+            --text-color: #ffffff;
+            --background-color: #0f1923;
+            --card-background: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Tajawal', '29ltbukrabolditalic', Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            text-align: right;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 25, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar h1 {
+            color: var(--primary-color);
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            text-align: center;
+        }
+
+        .container {
+            padding-top: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px 20px;
+            width: 100%;
+        }
+
+        .cover-photo {
+            position: relative;
+            height: 60vh;
+            min-height: 300px;
+            background-image: url('cover.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(15, 25, 35, 0.7), rgba(15, 25, 35, 0.9));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rgb-title {
+            font-size: clamp(2rem, 8vw, 4rem);
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 0 10px var(--primary-color);
+            animation: glow 2s ease-in-out infinite alternate;
+            text-align: center;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px var(--primary-color);
+            }
+            to {
+                text-shadow: 0 0 20px var(--primary-color),
+                            0 0 30px var(--accent-color);
+            }
+        }
+
+        .funky-card {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            border-radius: 20px;
+            padding: clamp(1rem, 4vw, 2rem);
+            margin: 2rem auto;
+            max-width: 600px;
+            transform: translateY(0);
+            animation: float 3s ease-in-out infinite;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .funky-card p {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            text-align: center;
+            font-weight: bold;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .greetings {
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            text-align: center;
+            margin: 2rem auto;
+            max-width: 800px;
+            line-height: 2;
+        }
+
+        .features-title {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            text-align: center;
+            margin: 2rem 0;
+            color: var(--accent-color);
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-list li {
+            background: var(--card-background);
+            padding: 1.5rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+        }
+
+        .features-list li:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .features-list i {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: var(--accent-color);
+        }
+
+        .video-section {
+            margin: 4rem auto;
+            padding: 2rem;
+            background: var(--card-background);
+            border-radius: 20px;
+            max-width: 1000px;
+        }
+
+        .video-section h3 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .video-section video {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin: 0 auto;
+            display: block;
+        }
+
+        .whatsapp-button {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+            border: none;
+            border-radius: 50px;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 2rem auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .floating-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-color);
+            color: white;
+            width: clamp(50px, 8vw, 60px);
+            height: clamp(50px, 8vw, 60px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 60px 15px 15px;
+            }
+
+            .cover-photo {
+                height: 40vh;
+                min-height: 200px;
+                background-attachment: scroll;
+            }
+
+            .features-list {
+                grid-template-columns: 1fr;
+                padding: 0.5rem;
+            }
+
+            .video-section {
+                margin: 2rem auto;
+                padding: 1rem;
+            }
+
+            .floating-button {
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 50px 10px 10px;
+            }
+
+            .funky-card {
+                margin: 1rem auto;
+            }
+
+            .greetings {
+                margin: 1rem auto;
+            }
+
+            .features-list li {
+                padding: 1rem;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .floating-button,
+            .whatsapp-button {
+                display: none;
+            }
+        }
+
+        .video-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .outdated-flag {
+            background: linear-gradient(135deg, #ff4655 0%, #ff6b6b 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        .greetings .flags {
+            font-size: 1.5rem;
+            letter-spacing: 0.5rem;
+            margin: 1rem 0;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .outdated-flag {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+            
+            .greetings .flags {
+                font-size: 1.2rem;
+                letter-spacing: 0.3rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <nav class="navbar">
+        <h1>Valorant Magic Shooter</h1>
+    </nav>
+
     <div class="container">
-        <!-- Cover Photo Section with Background Image -->
         <div class="cover-photo">
             <div class="overlay">
-                <h2 class="rgb-title">Valorant Magic Shooter</h2>
+                <h2 class="rgb-title animate__animated animate__fadeIn">Valorant Magic Shooter</h2>
             </div>
         </div>
 
         <div class="description">
-            <div class="funky-card">
+            <div class="funky-card animate__animated animate__fadeInUp">
                 <p>اضمن أمان حسابك</p>
-            </div> 
-            <p class="greetings">             
-                اهلا اخواتي العرب<br>
-                مع اقوي برنامج شوتر في الوطن العربي مع دعم مميزات مش موجودة في اي برنامج تاني<br>
+            </div>
+            
+            <p class="greetings animate__animated animate__fadeIn">
+                مرحباً بميع الدول<br>
+                مع اقوي برنامج تريجر بوت من مطورين مصريين مع دعم مميزات مش موجودة في اي برنامج تاني<br>
                 بنقدملك اسعار رمزية مش هتلاقيها في اي مكان تاني<br>
-                <span style="color: rgb(0, 153, 255);">البرنامج بيشتغل بطريقة امان لانه مش هاك</span>
+                <span style="color: #00ccff;">البرنامج بيشتغل بطريقة امان لانه مبني علي الذكاء الصناعي</span>
             </p>
-            <br>
-            <p class="features-title">مميزات البرنامج</p>
-            <ul class="features-list">
-                <li><i class="fas fa-user"></i>محاكاة لعب البشر</li>
-                <li><i class="fas fa-bullseye"></i>اطلاق تلقائي علي العدو</li>
-                <li><i class="fas fa-crosshairs"></i>التحكم في نوع السلاح المستخدم</li>
-                <li><i class="fas fa-tachometer-alt"></i>اختيار الشخصية المفضلة قبل الجميع</li>
-                <li><i class="fas fa-desktop"></i>واجهة مستخدم بسيطة</li>
-                <li><i class="fas fa-lock"></i>ضمان امان حسابك</li>
-            </ul>
 
+            <p class="features-title animate__animated animate__fadeIn">مميزات البرنامج</p>
+            <ul class="features-list">
+                <li class="animate__animated animate__fadeInUp"><i class="fas fa-user"></i>محاكاة لعب البشر</li>
+                <li class="animate__animated animate__fadeInUp" style="animation-delay: 0.1s"><i class="fas fa-bullseye"></i>اطلاق تلقائي علي العدو</li>
+                <li class="animate__animated animate__fadeInUp" style="animation-delay: 0.2s"><i class="fas fa-crosshairs"></i>التحكم في نوع السلاح المستخدم</li>
+                <li class="animate__animated animate__fadeInUp" style="animation-delay: 0.3s"><i class="fas fa-tachometer-alt"></i>اختيار الشخصية المفضلة قبل الجميع</li>
+                <li class="animate__animated animate__fadeInUp" style="animation-delay: 0.4s"><i class="fas fa-desktop"></i>واجهة مستخدم بسيطة</li>
+                <li class="animate__animated animate__fadeInUp" style="animation-delay: 0.5s"><i class="fas fa-lock"></i>ضمان امان حسابك</li>
+            </ul>
         </div>
 
-        <!-- Video Section -->
-        <div class="video-section">
-            <h3>فيديو استعراضي</h3>
-            <video controls>
+        <div class="video-section animate__animated animate__fadeIn">
+            <div class="video-header">
+                <h3>فيديو استعراضي</h3>
+                <span class="outdated-flag">فيديو قديم - سيتم تحديثه قريباً</span>
+            </div>
+            <video controls class="animate__animated animate__fadeIn">
                 <source src="review.mp4" type="video/mp4">
                 المتصفح لا يدعم عرض الفيديو.
             </video>
         </div>
 
-        <!-- WhatsApp Chat Group Buttons -->
-        <div class="buttons-wrapper">
-            <!-- WhatsApp Purchase Group Buttons -->
-            <div class="buttons-row">
-                <button class="whatsapp-button" onclick="window.location.href='https://discord.gg/PP2Hc8eM7V';">
-                    <i class="fas fa-shopping-cart"></i> Subscripe
-                </button>
-            </div>
-        </div>
+        <button class="whatsapp-button animate__animated animate__fadeInUp" onclick="window.location.href='https://discord.gg/PP2Hc8eM7V';">
+            <i class="fas fa-shopping-cart"></i> Subscribe Now
+        </button>
     </div>
 
-    <style>
-        /* Resetting margin and padding */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        .rgb-title {
-            font-family: '29ltbukrabolditalic', Arial, sans-serif;
-            font-size: 40px;
-            font-weight: bold;
-            color: white; /* اللون الأساسي للنص */
-            text-shadow: 0 0 10px red, 0 0 20px orange, 0 0 30px yellow, 0 0 40px green, 0 0 50px blue, 0 0 60px indigo, 0 0 70px violet;
-            animation: rgb-text-animation 3s infinite alternate;
-        }
-
-        @keyframes rgb-animation {
-            0% {
-                text-shadow: 0 0 10px red, 0 0 20px orange, 0 0 30px yellow, 0 0 40px green, 0 0 50px blue, 0 0 60px indigo, 0 0 70px violet;
-            }
-            50% {
-                text-shadow: 0 0 10px violet, 0 0 20px indigo, 0 0 30px blue, 0 0 40px green, 0 0 50px yellow, 0 0 60px orange, 0 0 70px red;
-            }
-            100% {
-                text-shadow: 0 0 10px blue, 0 0 20px green, 0 0 30px yellow, 0 0 40px orange, 0 0 50px red, 0 0 60px violet, 0 0 70px indigo;
-            }
-        }
-
-
-        @font-face {
-            font-family: '29ltbukrabolditalic';
-            src: url('fonts/29ltbukrabolditalic.otf') format('opentype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        /* تطبيق الخط على النصوص */
-        body {
-            font-family: '29ltbukrabolditalic', Arial, sans-serif;
-        }
-
-        /* تغيير حجم الخط في الأقسام المطلوبة */
-        .cover-photo h2 {
-            font-family: '29ltbukrabolditalic', Arial, sans-serif;
-            font-size: 40px; /* زيادة حجم الخط */
-        }
-
-                /* تنسيق البطاقة المميزة */
-        .funky-card {
-            background: linear-gradient(135deg, #ec0109 0%, #ffae00 100%); /* خلفية بتدرج لوني */
-            border-radius: 20px; /* زوايا دائرية */
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.1); /* ظل متدرج */
-            padding: 20px;
-            text-align: center;
-            max-width: 400px; /* عرض البطاقة */
-            margin: 30px auto; /* توسيط البطاقة في الصفحة */
-            animation: funky-card-bounce 3s infinite; /* إضافة حركة مستمرة */
-        }
-
-        /* تنسيق النص داخل البطاقة */
-        .funky-card p {
-            font-family: '29ltbukrabolditalic', Arial, sans-serif; /* استخدام الخط المخصص */
-            font-size: 32px; /* تكبير النص */
-            font-weight: bold;
-            color: white; /* لون النص أبيض */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* ظل للنص */
-        }
-
-        /* تأثير الحركة للبطاقة */
-        @keyframes funky-card-bounce {
-            0%, 100% {
-                transform: translateY(0); /* الوضع الطبيعي */
-            }
-            50% {
-                transform: translateY(-5px); /* الحركة للأعلى */
-            }
-        }
-
-        /* تنسيق للقسم المعزول */
-        .greetings {
-            background-color: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
-            padding: 30px;
-            margin: 50px auto; /* توسيط القسم في الصفحة */
-            max-width: 3200px;
-            border-radius: 15px; /* زوايا دائرية */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* ظل ناعم */
-            text-align: center; /* توسيط النص */
-        }
-
-        .greetings p {
-            font-size: 28px; /* حجم الخط */
-            line-height: 1.6; /* ارتفاع السطر */
-            margin-bottom: 20px; /* مسافة بين الفقرات */
-        }
-
-        .greetings span {
-            color: #00ccff; /* لون مميز للنص */
-            font-weight: bold; /* زيادة سمك النص */
-        }
-
-        .description {
-            font-family: '29ltbukrabolditalic', Arial, sans-serif;
-            font-size: 20px; /* زيادة حجم الخط */
-        }
-
-        .video-section h3 {
-            font-family: '29ltbukrabolditalic', Arial, sans-serif;
-            font-size: 24px; /* زيادة حجم الخط */
-        }
-
-        .features-title {
-            font-family: '29ltbukrabolditalic', Arial, sans-serif; /* الخط المخصص */
-            font-size: 28px; /* حجم النص */
-            color: #ffae00; /* لون مميز للنص */
-            text-align: center; /* توسيط العنوان */
-            margin-bottom: 20px;
-        }
-
-        .features-list {
-            list-style: none; /* إزالة نقاط القائمة الافتراضية */
-            padding: 0;
-            margin: 0 auto; /* توسيط القائمة */
-            max-width: 600px; /* عرض القائمة */
-        }
-
-        .features-list li {
-            background-color: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
-            color: #fff; /* لون النص */
-            font-size: 20px; /* حجم النص */
-            padding: 15px 20px; /* المسافة الداخلية */
-            margin-bottom: 10px; /* المسافة بين العناصر */
-            border-radius: 10px; /* زوايا دائرية */
-            display: flex;
-            align-items: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* ظل ناعم */
-            transition: background-color 0.3s, transform 0.2s; /* تأثير حركة ناعم */
-        }
-
-        .features-list li i {
-            margin-right: 15px; /* المسافة بين الأيقونة والنص */
-            font-size: 24px; /* حجم الأيقونة */
-            color: #ffae00; /* لون الأيقونة */
-        }
-
-        .features-list li:hover {
-            background-color: rgba(255, 255, 255, 0.2); /* تغيير لون الخلفية عند التحريك */
-            transform: translateY(-5px); /* حركة بسيطة لأعلى عند التحريك */
-        }
-
-
-        .whatsapp-button {
-            font-family: '29ltbukrabolditalic', Arial, sans-serif;
-            font-size: 18px; /* زيادة حجم الخط */
-        }
-
-
-        /* Body to occupy full width and height */
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #121212; /* Dark background for dark mode */
-        }
-
-        /* Setting up the main container */
-        .container {
-            width: 100%;
-            padding: 20px;
-            text-align: center;
-            font-family: 'Arial', sans-serif;
-            background-color: #121212; /* Dark background for dark mode */
-            color: white; /* White text for dark mode */
-            box-sizing: border-box; /* Ensure padding doesn't affect width */
-        }
-
-        /* Styling the cover photo as a background */
-        .cover-photo {
-            background-image: url('cover.jpg');
-            background-size: cover;
-            background-position: center;
-            width: 100%;
-            height: 300px;
-            position: relative;
-            border-radius: 0; /* Remove border-radius for full-width */
-            margin: 0 auto 20px auto; /* Center the cover photo */
-        }
-
-        /* Adding an overlay to darken the background */
-        .cover-photo .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6); /* Darker overlay */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .cover-photo h2 {
-            color: white;
-            font-size: 36px;
-            font-weight: bold;
-        }
-
-        /* Styling the description section */
-        .description {
-            margin-top: 10px;
-            font-size: 18px;
-            color: #ccc; /* Lighter text for dark mode */
-            margin-bottom: 30px;
-        }
-
-        /* Styling the video section */
-        .video-section {
-            margin-bottom: 30px;
-        }
-
-        .video-section h3 {
-            margin-bottom: 15px;
-            color: white;
-        }
-
-        /* Video styling to make it responsive and not too large */
-        .video-section video {
-            width: 100%;
-            max-width: 600px; /* Maximum width of the video */
-            border-radius: 10px;
-        }
-
-        /* Buttons wrapper to center the buttons */
-        .buttons-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        /* Buttons row for each set of buttons */
-        .buttons-row {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            width: 100%;
-            max-width: 800px;
-        }
-
-        /* Styling the buttons */
-        .whatsapp-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px 30px;
-            background-color: #25D366; /* WhatsApp green */
-            color: white;
-            font-size: 16px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 200px;
-        }
-
-        /* Styling the Font Awesome icons inside buttons */
-        .whatsapp-button i {
-            margin-right: 10px;
-            font-size: 18px;
-        }
-
-        /* Button hover effect */
-        .whatsapp-button:hover {
-            background-color: #128C7E; /* Darker WhatsApp green */
-            transform: translateY(-5px); /* Subtle lift effect on hover */
-        }
-
-        /* Responsive design */
-        @media (min-width: 769px) {
-            .buttons-row {
-                flex-direction: row; /* ترتيب الأزرار أفقياً في الشاشات الأكبر */
-                gap: 20px;
-            }
-
-            .whatsapp-button {
-                width: 200px; /* تحديد حجم الأزرار للشاشات الكبيرة */
-            }
-
-            .funky-card {
-                max-width: 400px; /* توسيع البطاقة في الشاشات الكبيرة */
-            }
-
-            .video-section video {
-                max-width: 600px; /* توسيع الفيديو في الشاشات الكبيرة */
-            }
-        }
-    </style>
+    <a href="https://discord.gg/PP2Hc8eM7V" class="floating-button">
+        <i class="fas fa-shopping-cart"></i>
+    </a>
 
     <script>
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
 
-    document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-    });
-
-    document.onkeydown = function(e) {
-    // Disable F12
-    if(e.keyCode == 123) {
-        return false;
-    }
-    // Disable Ctrl+Shift+I
-    if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-        return false;
-    }
-    // Disable Ctrl+Shift+J
-    if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-        return false;
-    }
-    // Disable Ctrl+U (View Page Source)
-    if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-        return false;
-    }
-    };
-
-    var element = new Image();
-    Object.defineProperty(element, 'id', {
-        get: function () {
-            console.log('Developer tools are open');
-            // You can add some code here to redirect or display a warning
-        }
-    });
-    console.log(element);
-
-
+        // Add scroll reveal animation
+        window.addEventListener('scroll', () => {
+            const elements = document.querySelectorAll('.animate__animated');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                
+                if (elementTop < window.innerHeight && elementBottom > 0) {
+                    element.style.visibility = 'visible';
+                }
+            });
+        });
     </script>
-
 </body>
 </html>
